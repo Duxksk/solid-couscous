@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+
+        <ImageButton android:id="@+id/backBtn"
+            android:layout_width="40dp" android:layout_height="40dp"/>
+
+        <ImageButton android:id="@+id/forwardBtn"
+            android:layout_width="40dp" android:layout_height="40dp"/>
+
+        <ImageButton android:id="@+id/refreshBtn"
+            android:layout_width="40dp" android:layout_height="40dp"/>
+
+        <ImageButton android:id="@+id/homeBtn"
+            android:layout_width="40dp" android:layout_height="40dp"/>
+
+        <EditText
+            android:id="@+id/urlBox"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:padding="6dp"
+            android:background="#eeeeee"/>
+
+        <ImageButton android:id="@+id/goBtn"
+            android:layout_width="40dp" android:layout_height="40dp"/>
+
+        <ImageButton android:id="@+id/desktopBtn"
+            android:layout_width="40dp" android:layout_height="40dp"/>
+
+        <ImageButton android:id="@+id/shareBtn"
+            android:layout_width="40dp" android:layout_height="40dp"/>
+
+    </LinearLayout>
+
+    <org.mozilla.geckoview.GeckoView
+        android:id="@+id/geckoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>
