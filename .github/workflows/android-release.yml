@@ -1,0 +1,38 @@
+name: Android-Release-Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Gradle Wrapper 파일 권한 설정
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      # JDK 설정 (Android 권장)
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      # Android SDK 설정
+      - name: Install Android SDK
+        uses: android-actions/setup-android@v3
+
+      # 디버그키로라도 서명 없이 빌드하도록 설정
+      - name: Build Release (Unsigned)
+        run: ./gradlew assembleRelease --stacktrace
+
+      # APK 업로드
+      - name: Upload Release APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: unsigned-release-apk
+          path: app/build/outputs/apk/release/*.apk
