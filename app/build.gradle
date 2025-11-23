@@ -1,0 +1,31 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    namespace 'com.junwoo.browser'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.junwoo.browser"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            signingConfig null // ← 서명 없음(요청사항)
+        }
+    }
+}
+
+dependencies {
+    implementation "org.mozilla.geckoview:geckoview:126.0.2024050100"
+}
